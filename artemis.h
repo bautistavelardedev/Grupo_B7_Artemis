@@ -15,8 +15,22 @@ typedef struct {
     double altura;
     double g;
 } Configuracion;
+/* Guarda los resultados de un lanzamiento. */
+typedef struct {
+    int numero;
+    Configuracion config;
+    double v1;
+    double y1;
+    double t2;
+    double v2;
+    double hmax;
+    double gs;
+} Mision;
 
 void configuracion_inicial(Configuracion *c);
 void mostrar_configuracion(const Configuracion *c);
+int configuracion_valida(const Configuracion *c);
+int ejecutar_mision(const Configuracion *c, Mision *m, int numero);
+void mostrar_mision(const Mision *m);
 
 #endif

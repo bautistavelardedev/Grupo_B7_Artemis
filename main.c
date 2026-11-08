@@ -3,6 +3,7 @@
 
 int main(void) {
     Configuracion config;
+    Mision mision;
     char entrada[80];
     char sobrante;
     int opcion;
@@ -12,6 +13,7 @@ int main(void) {
     do {
         puts("\n===== SIMULADOR ARTEMIS SLS =====");
         puts("1. Ver configuracion inicial");
+        puts("2. Simular ascenso del SLS");
         puts("0. Salir");
         printf("Seleccione una opcion: ");
 
@@ -28,6 +30,12 @@ int main(void) {
             case 1:
                 mostrar_configuracion(&config);
                 break;
+            case 2:
+                if (ejecutar_mision(&config, &mision, 1)) {
+                    mostrar_mision(&mision);
+                } else {
+                    puts("ERROR: no se pudo realizar la simulacion.");
+                }
             case 0:
                 puts("Fin del programa.");
                 break;
