@@ -1,7 +1,7 @@
 # Artemis- Grupo B7
 
 ## Integrantes del grupo
-- Bentolila, David Benjamín - Legajo: 
+- Bentolila, David Benjamín - Legajo: 30202
 - Carballo, Santino - Legajo: 
 - Elías, David Aguilar, Cáceres - Legajo: 
 - Ignacio, Agustin Luque - Legajo:
@@ -74,3 +74,6 @@ Cada lanzamiento se almacena en el historial, desde donde se pueden consultar lo
       python main.py
 
 ## Uso de IA:
+Se utilizó ChatGPT como herramienta de apoyo durante el desarrollo. Se consultó principalmente para separar tareas en archivos .c y .h, diseñar validaciones de entrada con funciones y comprender el manejo de listas simplemente enlazadas con punteros.
+Las consultas fueron concretas: cómo dividir el programa en archivos, cómo pedir y validar números sin que el programa se rompa, cómo recorrer y liberar una lista enlazada, y cómo corregir errores de compilación. El grupo no tenía experiencia previa en C, por lo que la IA fue un apoyo importante para avanzar; aun así, cada integrante revisó y comprendió lo incorporado.
+Sin embargo, las respuestas no se incorporaron directamente. Se detectaron propuestas que no se usaban, nombres inconsistentes, variables innecesarias y soluciones que solo cubrían los casos más simples, sin contemplar situaciones límite. Por eso, cada sugerencia fue revisada, adaptada y probada por el grupo con casos válidos e inválidos. Las decisiones finales de diseño e implementación fueron tomadas por los integrantes.
