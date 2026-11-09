@@ -10,6 +10,11 @@
 ## Comisión
 ISI - Comisión 1.2 - 2026
 
+# Enlace al Repositorio de GitHub:
+
+# Enlace al Video Demo:
+
+
 ## Escenario Asignado:
 El proyecto consiste en un simulador por consola desarrollado en lenguaje C, basado en la primera etapa de la misión Artemis de la NASA, específicamente en el despegue y ascenso del cohete Space Launch System (SLS), encargado de impulsar la nave Orion.
 La simulación representa el movimiento vertical del cohete desde la plataforma de lanzamiento hasta el apagado de sus motores, considerando dos fases de aceleración constante y una etapa final de ascenso libre.
