@@ -1,5 +1,6 @@
 #ifndef ARTEMIS_H
 #define ARTEMIS_H
+#define MAX_MISIONES 20
 
 /* Valores de referencia del problema 1 (ascenso del SLS). */
 #define A1_DEF 20.0
@@ -33,4 +34,6 @@ int configuracion_valida(const Configuracion *c);
 int ejecutar_mision(const Configuracion *c, Mision *m, int numero);
 void mostrar_mision(const Mision *m);
 
+void mostrar_historial(const Mision historial[], int cantidad);
+int eliminar_mision(Mision historial[], int *cantidad, int posicion);
 #endif

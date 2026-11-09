@@ -54,6 +54,7 @@ int ejecutar_mision(const Configuracion *c, Mision *m, int numero) {
     return 1;
 }
 
+
 void mostrar_mision(const Mision *m) {
     printf("\n========== REPORTE MISION %d ==========\n", m->numero);
     printf("Rapidez al desacople SRB: %.2f m/s\n", m->v1);
@@ -63,4 +64,30 @@ void mostrar_mision(const Mision *m) {
     printf("Altura maxima ideal: %.2f m (%.2f km)\n", m->hmax, m->hmax / 1000.0);
     printf("Aceleracion primera fase: %.3f g\n", m->gs);
     puts("NOTA: modelo vertical ideal con gravedad constante y sin resistencia del aire.");
+}
+void mostrar_historial(const Mision historial[], int cantidad) {
+    if (cantidad == 0) {
+        puts("\nTodavia no hay misiones registradas.");
+        return;
+    }
+
+    puts("\n--- HISTORIAL DE MISIONES ---");
+    puts("Pos | Mision | Velocidad apagado (m/s) | Altura maxima (km)");
+    for (int i = 0; i < cantidad; i++) {
+        printf("%3d | %6d | %23.2f | %17.2f\n",
+            i + 1, historial[i].numero,
+            historial[i].v2, historial[i].hmax / 1000.0);
+    }
+}
+
+int eliminar_mision(Mision historial[], int *cantidad, int posicion) {
+    if (historial == NULL || cantidad == NULL ||
+        posicion < 0 || posicion >= *cantidad) return 0;
+
+    for (int i = posicion; i < *cantidad - 1; i++) {
+        historial[i] = historial[i + 1];
+    }
+    (*cantidad)--;
+    historial[*cantidad] = (Mision){0};
+    return 1;
 }
