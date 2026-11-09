@@ -3,7 +3,7 @@
 ## Integrantes del grupo
 - Bautista, Facundo Velarde - Legajo:
 - Bentolila, David Benjamín - Legajo: 30202
-- Carballo, Santino - Legajo: 
+- Carballo, Santino - Legajo: 28954
 - Elías, David Aguilar, Cáceres - Legajo: 
 - Ignacio, Agustin Luque - Legajo:
 
