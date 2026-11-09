@@ -1,94 +1,67 @@
 #include <stdio.h>
 #include "artemis.h"
+#include "validaciones.h"
 
 int main(void) {
     Configuracion config;
-    Mision historial[MAX_MISIONES] = {0}; /* Arreglo estatico de misiones */
-    int cantidad = 0;
-    int proximo_numero = 1;
-    char entrada[80];
-    char sobrante;
-    int opcion, posicion;
+    Mision historial[MAX_MISIONES] = {0}; /* Arreglo estatico */
+    int cantidad = 0, proximo_numero = 1, opcion, posicion, confirmar;
 
     configuracion_inicial(&config);
-
     do {
-        puts("\n===== SIMULADOR ARTEMIS SLS =====");
-        puts("1. Ver configuracion inicial");
-        puts("2. Simular ascenso del SLS");
+        puts("\n========== ARTEMIS SLS ==========");
+        puts("1. Configurar mision");
+        puts("2. Ejecutar lanzamiento");
         puts("3. Consultar historial");
         puts("4. Eliminar una mision del historial");
+        puts("5. Restaurar valores originales");
         puts("0. Salir");
-        printf("Seleccione una opcion: ");
-
-        if (fgets(entrada, sizeof(entrada), stdin) == NULL) {
-            puts("Fin de entrada.");
-            break;
-        }
-        if (sscanf(entrada, " %d %c", &opcion, &sobrante) != 1) {
-            puts("Opcion invalida.");
-            opcion = -1;
-        }
+        opcion = leer_entero("Seleccione una opcion", 0, 5);
 
         switch (opcion) {
             case 1:
-                mostrar_configuracion(&config);
+                configurar_mision(&config);
                 break;
             case 2:
-                if (cantidad >= MAX_MISIONES) {
-                    puts("Historial completo: maximo 20 misiones.");
-                } else if (ejecutar_mision(&config, &historial[cantidad], proximo_numero)) {
+                if (cantidad == MAX_MISIONES) {
+                    puts("Historial completo (20 misiones). Elimine alguna para continuar.");
+                } else if (!configuracion_valida(&config)) {
+                    puts("ERROR: configuracion invalida.");
+                } else if (!ejecutar_mision(&config, &historial[cantidad], proximo_numero)) {
+                    puts("ERROR: no se pudo reservar memoria para los eventos.");
+                } else {
                     mostrar_mision(&historial[cantidad]);
                     cantidad++;
                     proximo_numero++;
-                } else {
-                    puts("ERROR: no se pudo realizar la simulacion.");
                 }
                 break;
             case 3:
                 mostrar_historial(historial, cantidad);
-                if (cantidad > 0) {
-                    printf("Ver detalle por posicion (0 para volver): ");
-                    if (fgets(entrada, sizeof(entrada), stdin) == NULL) {
-                        puts("Fin de entrada.");
-                        opcion = 0;
-                        break;
-                    }
-                    if (sscanf(entrada, " %d %c", &posicion, &sobrante) != 1 ||
-                        posicion < 0 || posicion > cantidad) {
-                        puts("Posicion invalida.");
-                    } else if (posicion != 0) {
-                        mostrar_mision(&historial[posicion - 1]);
-                    }
-                }
+                break;
             case 4:
                 if (cantidad == 0) {
                     puts("No hay misiones para eliminar.");
-                    break;
-                }
-                mostrar_historial(historial, cantidad);
-                printf("Posicion a eliminar (0 para cancelar): ");
-                if (fgets(entrada, sizeof(entrada), stdin) == NULL) {
-                    puts("Fin de entrada.");
-                    opcion = 0;
-                    break;
-                }
-                if (sscanf(entrada, " %d %c", &posicion, &sobrante) != 1 ||
-                    posicion < 0 || posicion > cantidad) {
-                    puts("Posicion invalida.");
-                } else if (posicion != 0 &&
-                        eliminar_mision(historial, &cantidad, posicion - 1)) {
-                    puts("Mision eliminada del historial.");
+                } else {
+                    posicion = leer_entero("Posicion a eliminar (0 para cancelar)", 0, cantidad);
+                    if (posicion != 0) {
+                        confirmar = leer_entero("Confirmar eliminacion? (1=Si, 0=No)", 0, 1);
+                        if (confirmar == 1) {
+                            eliminar_mision(historial, &cantidad, posicion - 1);
+                            puts("Mision eliminada del historial.");
+                        }
+                    }
                 }
                 break;
+            case 5:
+                configuracion_inicial(&config);
+                puts("Valores originales restaurados.");
                 break;
             case 0:
-                puts("Fin del programa.");
+                puts("Fin de la simulacion.");
                 break;
-            default:
-                puts("Seleccione una opcion entre 0 y 4.");
         }
     } while (opcion != 0);
 
+    liberar_historial(historial, cantidad);
     return 0;
 }
