@@ -4,7 +4,7 @@
 - Aguilar Cáceres, David Elías - Legajo: 
 - Bentolila, David Benjamín - Legajo: 30202
 - Carballo, Santino - Legajo: 28954
-- Luque, Agustín Ignacio - Legajo:
+- Luque, Agustín Ignacio - Legajo: 30692
 - Velarde, Bautista Facundo - Legajo:
 
 ## Comisión
