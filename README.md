@@ -1,11 +1,11 @@
 # Artemis- Grupo B7
 
 ## Integrantes del grupo
-- Bautista, Facundo Velarde - Legajo:
+- Aguilar Cáceres, David Elías - Legajo: 
 - Bentolila, David Benjamín - Legajo: 30202
 - Carballo, Santino - Legajo: 28954
-- Elías, David Aguilar, Cáceres - Legajo: 
-- Ignacio, Agustin Luque - Legajo:
+- Luque, Agustín Ignacio - Legajo:
+- Velarde, Bautista Facundo - Legajo:
 
 ## Comisión
 ISI - Comisión 1.2 - 2026
