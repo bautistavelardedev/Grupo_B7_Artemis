@@ -5,7 +5,7 @@
 - Bentolila, David Benjamín - Legajo: 30202
 - Carballo, Santino - Legajo: 28954
 - Luque, Agustín Ignacio - Legajo: 30692
-- Velarde, Bautista Facundo - Legajo:
+- Velarde, Bautista Facundo - Legajo: 30922
 
 ## Comisión
 ISI - Comisión 1.2 - 2026
