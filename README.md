@@ -1,7 +1,7 @@
 # Artemis- Grupo B7
 
 ## Integrantes del grupo
-- Aguilar Cáceres, David Elías - Legajo: 
+- Aguilar Cáceres, David Elías - Legajo: 30126
 - Bentolila, David Benjamín - Legajo: 30202
 - Carballo, Santino - Legajo: 28954
 - Luque, Agustín Ignacio - Legajo: 30692
