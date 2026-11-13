@@ -14,7 +14,7 @@ ISI - Comisión 1.2 - 2026
 https://github.com/bautistavelardedev/Grupo_B7_Artemis
 
 # Enlace al Video Demo:
-
+https://www.youtube.com/watch?v=sgA5g9nOLdE
 
 ## Escenario Asignado:
 El proyecto consiste en un simulador por consola desarrollado en lenguaje C, basado en la primera etapa de la misión Artemis de la NASA, específicamente en el despegue y ascenso del cohete Space Launch System (SLS), encargado de impulsar la nave Orion.
